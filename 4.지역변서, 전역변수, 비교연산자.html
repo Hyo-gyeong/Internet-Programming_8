@@ -1,0 +1,58 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <!--지역변수와 전역변수 선언방법 및 영향이 미치는 정도-->
+        <script>
+            function getGrade() {
+                var math=8; //지역 변수
+            }
+            var math=1; //전역 변수
+            getGrade(); //함수 호출!!
+            document.write("당신의 수능 수학 등급은? "+math+"등급");
+
+            function getGrade() {// 함수이름 똑같이 갖다쓰고 바꾸면 이후에는 다른 함수가 됨.
+                eng = 2; //함수 내부에서 var생략시 자동 전역 변수 => 끝까지 효력있음. 
+            }
+            var eng=9; //밑에서 바꿔도 소용 없음.
+            getGrade();
+            document.write("<br>당신의 수능 영어 등급은? "+eng+"등급");
+
+        </script>
+
+        <!--변수 선언 팁-->
+        <p>**var 변수 선언은 생략가능하며, 변수명을 재선언 해도 저장된 데이터가 없어지지 않는 문제가 있기때문에 let 이나 const 선언을 사용 추천!**</p>
+        <p>let은 재할당이 가능하지만 const는 재할당 및 변수 재선언이 불가능하다는 차이점이 있음.</p>
+
+        <!--변수의 형태에 따른 함수내부,외부에서의 사용가능여부-->
+        <script>
+            function unusuable() {
+                var sth = '가능합니다';
+                document.write("(함수 안에서) 사용 가능합니까?" + sth + "<br><br>");
+            }
+            unusuable();
+            document.write("지역변수가 함수안에서 생명이 끝나기 때문에 함수밖에서는 사용 불가");
+            document.write("(함수 밖에서) 사용 가능합니까?" + sth + "<br><br>");
+            document.write("지역변수가 함수안에서 생명이 끝나기 때문에 함수밖에서는 사용 불가");//위에서 처리가 안되기 떄문에 아래에 있는것도 나타나지 않음.
+        </script>
+
+        <!--지역변수 함수 외부에서 사용하는 방법-->
+        <script>
+            function available() {
+                var date='8/20';
+                return date;
+            }
+            date = available();
+            document.write("<p>함수에서 return 해준 지역변수는 변수에 담아서 (이름 상관 없음)함수 밖에서 사용 가능. <br> 오늘 날짜 : "+date + "</p>");
+        </script>
+
+        <!--비교 연산자: true/ false 반환-->
+        <script>
+            var x = 10;
+            var y = 11;
+            result = (x > y); // || 나 && 나 !(부정) 으로 논리 엮을 수 있음.
+            document.write("x가 y보다 큰가요?? "+result);
+        </script>
+    </body>
+</html>
