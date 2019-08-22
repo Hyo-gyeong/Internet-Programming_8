@@ -40,11 +40,12 @@
         <!--지역변수 함수 외부에서 사용하는 방법-->
         <script>
             function available() {
-                var date='8/20';
+                var date= new Date();
                 return date;
             }
-            date = available();
-            document.write("<p>함수에서 return 해준 지역변수는 변수에 담아서 (이름 상관 없음)함수 밖에서 사용 가능. <br> 오늘 날짜 : "+date + "</p>");
+            date1 = available();
+            // new Date() 와 이걸 담은 변수에 .getYear(), .getMonth() [+1을 해줘야함!], .getDate() 사용하기~~
+            document.write("<p>함수에서 return 해준 지역변수는 변수에 담아서 (이름 상관 없음)함수 밖에서 사용 가능. <br> 오늘 날짜 : "+(date1.getMonth()+1)+"/"+ date1.getDate() + "</p>");
         </script>
 
         <!--비교 연산자: true/ false 반환-->
